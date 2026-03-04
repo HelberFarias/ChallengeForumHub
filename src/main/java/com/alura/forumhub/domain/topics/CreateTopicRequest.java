@@ -1,12 +1,16 @@
 package com.alura.forumhub.domain.topics;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+
 public record CreateTopicRequest(
-        String id,
+        @NotBlank
         String title,
+        @NotBlank
         String message,
-        String created_at,
-        String status,
-        String author_id,
-        String course_id
-) {
-}
+        @NotNull
+        Long authorId,
+        @NotNull
+        Long courseId
+) {}

@@ -19,9 +19,15 @@ public class Topic {
     private Long id;
     private String title;
     private String message;
-    private LocalDate created_at;
+    private LocalDate createdAt;
     private boolean status = true;
-    private Integer author_id;
-    private String course_id;
+    private Long authorId;
+    private Long courseIid;
 
+    public Topic( CreateTopicRequest data) {
+        this.title = data.title();
+        this.message = data.message();
+        this.authorId = data.authorId();
+        this.courseIid = data.courseId();
+    }
 }
