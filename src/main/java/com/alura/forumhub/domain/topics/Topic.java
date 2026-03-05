@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity (name = "Topics")
 @Table (name = "topics")
@@ -19,15 +19,18 @@ public class Topic {
     private Long id;
     private String title;
     private String message;
-    private LocalDate createdAt;
-    private boolean status = true;
+    @Column (name = "created_at")
+    private LocalDateTime createdAt;
+    private boolean status;
     private Long authorId;
-    private Long courseIid;
+    private Long courseId;
 
     public Topic( CreateTopicRequest data) {
         this.title = data.title();
         this.message = data.message();
-        this.authorId = data.authorId();
-        this.courseIid = data.courseId();
+        this.status = true;
+        this.courseId = data.courseId();
+        this.createdAt = LocalDateTime.now();
     }
+
 }

@@ -10,7 +10,5 @@ public record CreateTopicRequest(
         @NotBlank
         String message,
         @NotNull
-        Long authorId,
-        @NotNull
         Long courseId
 ) {}

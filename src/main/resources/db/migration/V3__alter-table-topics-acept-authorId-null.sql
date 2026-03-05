@@ -1,0 +1,2 @@
+ALTER TABLE topics
+MODIFY author_id BIGINT NULL;

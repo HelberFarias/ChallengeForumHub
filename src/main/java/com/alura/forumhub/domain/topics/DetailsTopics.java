@@ -1,12 +1,12 @@
 package com.alura.forumhub.domain.topics;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record DetailsTopics(
         Long id,
         String tittle,
         String message,
-        LocalDate createdAt,
+        LocalDateTime createdAt,
         Long authorId,
         Long courseIid)
 {
@@ -17,7 +17,7 @@ public record DetailsTopics(
                 newTopic.getMessage(),
                 newTopic.getCreatedAt(),
                 newTopic.getAuthorId(),
-                newTopic.getCourseIid()
+                newTopic.getCourseId()
         );
     }
 }
