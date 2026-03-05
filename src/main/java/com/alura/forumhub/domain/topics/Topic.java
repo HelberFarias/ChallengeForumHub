@@ -1,6 +1,7 @@
 package com.alura.forumhub.domain.topics;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -33,4 +34,16 @@ public class Topic {
         this.createdAt = LocalDateTime.now();
     }
 
+
+    public void updateTopic(@Valid UpdateTopicData data) {
+        if (data.title() != null) {
+            this.title = data.title();
+        }
+        if(data.message() != null) {
+            this.message = data.message();
+        }
+        if(data.courseId() != null) {
+            this.courseId = data.courseId();
+        }
+    }
 }
