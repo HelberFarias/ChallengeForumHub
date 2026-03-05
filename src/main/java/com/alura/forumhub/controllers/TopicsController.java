@@ -33,7 +33,12 @@ public class TopicsController {
 
         var page = topicsRepository.findAllByStatusTrue(pageable).map(TopicResponse::new);
         return ResponseEntity.ok(page);
+    }
 
+    @GetMapping ("/{id}")
+    public ResponseEntity topicDetails (@PathVariable Long id) {
+        var topic = topicsRepository.getReferenceById(id);
+        return ResponseEntity.ok(new DetailsTopics(topic));
     }
 
 }

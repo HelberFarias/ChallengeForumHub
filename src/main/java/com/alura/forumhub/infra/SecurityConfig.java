@@ -24,6 +24,7 @@ public class SecurityConfig {
                             sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(a -> {
                         a.requestMatchers("/topics/**").permitAll();
+                        a.requestMatchers("/topics/{id}").permitAll();
                         a.anyRequest().authenticated();
                     })
                         .build();
