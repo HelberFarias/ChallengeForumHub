@@ -49,7 +49,13 @@ public class TopicsController {
         update.updateTopic(data);
 
         return ResponseEntity.ok(new UpdateTopicData(update));
+    }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteTopic(@PathVariable Long id) {
 
+        topicsRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
