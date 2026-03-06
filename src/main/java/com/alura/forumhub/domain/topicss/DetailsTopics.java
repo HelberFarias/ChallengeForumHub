@@ -1,4 +1,4 @@
-package com.alura.forumhub.domain.topics;
+package com.alura.forumhub.domain.topicss;
 
 import java.time.LocalDateTime;
 

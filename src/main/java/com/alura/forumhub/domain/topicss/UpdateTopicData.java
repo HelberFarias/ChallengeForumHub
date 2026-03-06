@@ -1,6 +1,5 @@
-package com.alura.forumhub.domain.topics;
+package com.alura.forumhub.domain.topicss;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record UpdateTopicData(

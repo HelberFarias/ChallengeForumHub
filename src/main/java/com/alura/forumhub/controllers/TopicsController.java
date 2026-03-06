@@ -1,6 +1,6 @@
 package com.alura.forumhub.controllers;
 
-import com.alura.forumhub.domain.topics.*;
+import com.alura.forumhub.domain.topicss.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +28,17 @@ public class TopicsController {
         return ResponseEntity.created(uri).body(new DetailsTopics(newTopic));
     }
 
-    @GetMapping
-    public ResponseEntity <Page<TopicResponse>>showTopics(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable) {
-
-        var page = topicsRepository.findAllByStatusTrue(pageable).map(TopicResponse::new);
-        return ResponseEntity.ok(page);
-    }
-
     @GetMapping ("/{id}")
     public ResponseEntity topicDetails (@PathVariable Long id) {
         var topic = topicsRepository.getReferenceById(id);
         return ResponseEntity.ok(new DetailsTopics(topic));
+    }
+
+    @GetMapping
+    public ResponseEntity <Page<TopicResponse>>showTopics(@PageableDefault(size = 15, sort = {"id"}) Pageable pageable) {
+
+        var page = topicsRepository.findAllByStatusTrue(pageable).map(TopicResponse::new);
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping ("/{id}")
@@ -50,6 +50,7 @@ public class TopicsController {
 
         return ResponseEntity.ok(new UpdateTopicData(update));
     }
+
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity deleteTopic(@PathVariable Long id) {

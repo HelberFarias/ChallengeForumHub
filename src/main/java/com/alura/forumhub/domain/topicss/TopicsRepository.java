@@ -1,7 +1,5 @@
-package com.alura.forumhub.domain.topics;
+package com.alura.forumhub.domain.topicss;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
