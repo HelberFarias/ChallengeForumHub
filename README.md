@@ -26,10 +26,10 @@ O projeto foi desenvolvido com o objetivo de praticar a construção de APIs RES
 
 🚀 Execução
 
-1º Clone o repositório
-2º Configure o banco de dados MySQL
-3º Execute a aplicação
-4º A API estará disponível em:
+- Clone o repositório
+- Configure o banco de dados MySQL
+- Execute a aplicação
+- A API estará disponível em:
 
 http://localhost:8080
 
