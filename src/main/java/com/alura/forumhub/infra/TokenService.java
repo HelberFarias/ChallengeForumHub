@@ -33,15 +33,15 @@ public class TokenService {
 
     public String getSubject (String tokenJWT) {
         try {
-            var algoritmo = Algorithm.HMAC256(secret);
-            return JWT.require(algoritmo)
+            var algorithm = Algorithm.HMAC256(secret);
+            return JWT.require(algorithm)
                     .withIssuer("forumhub_api")
                     .build()
                     .verify(tokenJWT)
                     .getSubject();
 
         } catch (JWTVerificationException exception) {
-            throw new RuntimeException("TokenJWT invalido ou expirado!");
+            throw new RuntimeException("[ERRO] Invalid Token!");
         }
     }
 
